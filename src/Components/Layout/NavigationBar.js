@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import NonRegisteredUsers from './NonRegisteredUsers';
 import RegisteredUsers from './RegisteredUsers';
