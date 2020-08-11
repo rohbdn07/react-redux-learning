@@ -8,7 +8,7 @@ const CreateNewPost = () => (
                 <label for="postTitle">Title:</label>
             </div>
             <div className="input-field">
-                <textarea id="postContent" class="materialize-textarea" data-length="500"></textarea>
+                <textarea id="postContent" className="materialize-textarea" data-length="500"></textarea>
                 <label for="postContent">Content:</label>
             </div>
 

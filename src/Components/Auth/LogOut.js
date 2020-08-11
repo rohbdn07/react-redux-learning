@@ -1,7 +1,7 @@
 import React from 'react'
 
-const LogOut = () => (
+const Register = () => (
     <form></form>
 )
 
-export default LogOut;
+export default Register;
