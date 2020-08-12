@@ -3,6 +3,7 @@ import React from 'react'
 class LogIn extends React.Component {
     constructor(props) {
         super(props);  
+    
         this.state = {
             email: null,
             password: null
@@ -13,6 +14,7 @@ class LogIn extends React.Component {
     }
 
     handleChange = (e) => {
+        console.log(this);
         this.setState({
             [e.target.id]: e.target.value
         })
@@ -21,6 +23,10 @@ class LogIn extends React.Component {
     handleSubmission = (e) => {
         e.preventDefault();
         console.log(this.state);
+    }
+
+    handleClick(event){
+        console.log(this); // 'this' is undefined
     }
 
     render(){
@@ -36,6 +42,10 @@ class LogIn extends React.Component {
                         <label htmlFor="password">Password</label>
                     </div>
                     <button className="btn waves-effect waves-light" type="submit" name="action">Log In</button>
+                    
+                    <button type="button" onClick={this.handleClick}>
+                        Click Me
+                    </button>
                 </form>
             </div>
         )
