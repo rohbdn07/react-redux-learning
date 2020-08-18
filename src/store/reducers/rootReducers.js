@@ -12,7 +12,16 @@ const initialState = {
 };
 
 const rootReducers = (state = initialState, action) => {
-    return state;
+    switch (action.type){
+        case 'CREATE_POST_SUCCESSFUL':
+            console.log('Created a new Post');
+            return state;
+        case 'CREATE_POST_ERROR':
+            console.log('Post creation fail: ' + action.err.message);
+            return state;
+        default:
+            return state;
+    }
 }
 
 export default rootReducers;
