@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createPost } from '../../store/actions/postActions'
 
 class CreateNewPost extends React.Component{
     constructor(props){
         super(props);
         this.state = {};
         this.handleChange = this.handleChange.bind(this);
-        this.handlSubmission = this.handlSubmission.bind(this);
+        this.handleSubmission = this.handleSubmission.bind(this);
     }
 
     handleChange = (e) => {
@@ -21,7 +20,7 @@ class CreateNewPost extends React.Component{
         this.props.createPost({
             title: this.state.postTitle,
             content: this.state.postContent
-        })
+        });
     }
 
     render(){
@@ -43,17 +42,20 @@ class CreateNewPost extends React.Component{
         );
     }
 } 
-
-const mapStateToProps = (state) => {
-    return {
-        
-    }
-}
+// when to dispatch the action?
+// what is the name of the props to be called so that the action is dispatched
+// is there a payload to be dispatched together with the action?
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createPost: post => dispatch(createPost(post))   
+        createPost: (post) => {
+            console.log(post);
+            return dispatch({ 
+                type: 'CREATE_NEW_POST', 
+                post: post
+            }) 
+        }  
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateNewPost);
+export default connect(null, mapDispatchToProps)(CreateNewPost);

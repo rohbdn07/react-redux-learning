@@ -11,7 +11,7 @@ class AllPosts extends React.Component {
                 { 
                     this.props.posts ? 
                     this.props.posts.map(post => 
-                        <PostSummary post={post} key={post.id}/>
+                        <PostSummary post={post} key={Math.random()*99}/>
                     ) :
                     'Loading ....'
                 }
