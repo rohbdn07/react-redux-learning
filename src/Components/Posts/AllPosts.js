@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 
 class AllPosts extends React.Component {
     render(){
-        console.log('Received a state from reducer');
-        console.log(this.props.posts);
         return (
             <div>
+                <button className="btn" onClick={this.props.removePost}>Remove All Post</button>
                 { 
                     this.props.posts ? 
                     this.props.posts.map(post => 
@@ -26,4 +25,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(AllPosts);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removePost: () => {
+            dispatch({ type: 'REMOVE_ALL_POSTS' });
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllPosts);
