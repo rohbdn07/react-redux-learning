@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { createPost } from '../../store/actions/postActions'
 
 class CreateNewPost extends React.Component{
     constructor(props){
@@ -46,15 +47,9 @@ class CreateNewPost extends React.Component{
 // what is the name of the props to be called so that the action is dispatched
 // is there a payload to be dispatched together with the action?
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        createPost: (post) => {
-            console.log(post);
-            return dispatch({ 
-                type: 'CREATE_NEW_POST', 
-                post: post
-            }) 
-        }  
+        createPost: post => dispatch(createPost(post))  
     }
 }
 
