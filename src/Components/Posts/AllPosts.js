@@ -9,7 +9,7 @@ class AllPosts extends React.Component {
             <div>
                 <button className="btn" onClick={this.props.removePost}>Remove All Post</button>
                 { 
-                    this.props.posts ? 
+                    this.props.posts.length > 0 ? 
                     this.props.posts.map(post => 
                         <PostSummary post={post} key={Math.random()*99}/>
                     ) :
@@ -22,7 +22,7 @@ class AllPosts extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts
+        posts: state.posts // []
     }
 }
 
