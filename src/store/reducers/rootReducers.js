@@ -4,22 +4,23 @@ const initialState = {
     posts: [
         
     ],
-    userData: {}
+    userData: {},
+    userActionErr: null
 };
 
 const rootReducers = (state = initialState, action) => {
     switch(action.type) {
         case 'CREATE_NEW_POST':
+            console.log('A new post has been added')
+            return state;      
+               
+        case 'CREATE_NEW_POST_FAIL':
+            console.log('An error has occurred: ' + action.err.message);
             return {
-                ...state, // spread operation
-                posts: [
-                    ...state.posts, // spread operation
-                    action.post
-                ]
-            };
+                ...state,
+                userActionErr: action.err.message
+            }; 
 
-
-            
         case 'REMOVE_ALL_POSTS':
             return {
                 ...state,

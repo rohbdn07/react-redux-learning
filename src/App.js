@@ -13,23 +13,6 @@ import { FIREBASE_CONFIG as firebaseConfig } from './config/firebaseConfig';
 
 // Initialize Firebase
 Firebase.initializeApp(firebaseConfig);
-Firebase.analytics();
-
-const db = Firebase.firestore();
-
-db.collection('posts').get()
-  .then(resp => {
-    console.log('resp is: ');
-    console.log(resp);
-    console.log('resp.docs is: ');
-    console.log(resp.docs);
-    console.log('resp.docs[0].data()');
-    console.log(resp.docs[0].data());
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
 
 function App() {
   return (
